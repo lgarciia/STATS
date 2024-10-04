@@ -82,8 +82,16 @@ document.getElementById('salle-form').addEventListener('submit', function(event)
     }
 });
 
+// Fonction pour supprimer des données dans Tennis
+function supprimerEntreeTennis(index) {
+    let tennisData = JSON.parse(localStorage.getItem('tennisData')) || [];
+    tennisData.splice(index, 1); // Supprime l'élément à l'index donné
+    localStorage.setItem('tennisData', JSON.stringify(tennisData));
+    afficherAnalyseTennis(); // Actualise l'affichage après suppression
+}
+
 // Analyse des données Tennis
-document.getElementById('tennis-analyse-btn').addEventListener('click', function() {
+function afficherAnalyseTennis() {
     document.getElementById('tennis-section').style.display = 'none';
     document.getElementById('tennis-analyse-section').style.display = 'block';
 
@@ -91,24 +99,32 @@ document.getElementById('tennis-analyse-btn').addEventListener('click', function
     let totalHours = 0;
     const players = {};
 
-    tennisData.forEach(entry => {
+    const playersList = document.getElementById('tennis-players-list');
+    playersList.innerHTML = '';  // Vider la liste
+    tennisData.forEach((entry, index) => {
         totalHours += entry.duration;
         players[entry.player] = (players[entry.player] || 0) + entry.duration;
+
+        const li = document.createElement('li');
+        li.innerHTML = `${entry.player} : ${entry.duration.toFixed(2)} heures <button onclick="supprimerEntreeTennis(${index})">Supprimer</button>`;
+        playersList.appendChild(li);
     });
 
     document.getElementById('total-tennis-hours').textContent = totalHours.toFixed(2);
+}
 
-    const playersList = document.getElementById('tennis-players-list');
-    playersList.innerHTML = '';  // Vider la liste
-    for (const player in players) {
-        const li = document.createElement('li');
-        li.textContent = `${player} : ${players[player].toFixed(2)} heures`;
-        playersList.appendChild(li);
-    }
-});
+document.getElementById('tennis-analyse-btn').addEventListener('click', afficherAnalyseTennis);
+
+// Fonction pour supprimer des données dans Salle
+function supprimerEntreeSalle(index) {
+    let salleData = JSON.parse(localStorage.getItem('salleData')) || [];
+    salleData.splice(index, 1); // Supprime l'élément à l'index donné
+    localStorage.setItem('salleData', JSON.stringify(salleData));
+    afficherAnalyseSalle(); // Actualise l'affichage après suppression
+}
 
 // Analyse des données Salle de Sport
-document.getElementById('salle-analyse-btn').addEventListener('click', function() {
+function afficherAnalyseSalle() {
     document.getElementById('salle-section').style.display = 'none';
     document.getElementById('salle-analyse-section').style.display = 'block';
 
@@ -116,17 +132,17 @@ document.getElementById('salle-analyse-btn').addEventListener('click', function(
     let totalSessions = salleData.length;
     const types = {};
 
-    salleData.forEach(entry => {
+    const typeList = document.getElementById('salle-type-list');
+    typeList.innerHTML = '';  // Vider la liste
+    salleData.forEach((entry, index) => {
         types[entry.type] = (types[entry.type] || 0) + 1;
+
+        const li = document.createElement('li');
+        li.innerHTML = `${entry.type} : ${types[entry.type]} séances <button onclick="supprimerEntreeSalle(${index})">Supprimer</button>`;
+        typeList.appendChild(li);
     });
 
     document.getElementById('total-salle-sessions').textContent = totalSessions;
+}
 
-    const typeList = document.getElementById('salle-type-list');
-    typeList.innerHTML = '';  // Vider la liste
-    for (const type in types) {
-        const li = document.createElement('li');
-        li.textContent = `${type} : ${types[type]} séances`;
-        typeList.appendChild(li);
-    }
-});
+document.getElementById('salle-analyse-btn').addEventListener('click', afficherAnalyseSalle);
