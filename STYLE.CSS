@@ -1,0 +1,154 @@
+/* Style global */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9fb;
+    margin: 0;
+    padding: 10px;
+    color: #333;
+    box-sizing: border-box;
+}
+
+h1, h2 {
+    color: #1c1c6d;
+    text-align: center;
+}
+
+/* Conteneur principal */
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Barre de navigation */
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+nav ul li a {
+    color: #1c1c6d;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Boutons */
+button {
+    display: inline-block;
+    padding: 8px 15px;
+    margin: 8px 0;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: center;
+    width: auto;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button:focus {
+    outline: none;
+}
+
+button.return-btn {
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    font-size: 12px;
+    background-color: #ddd;
+    color: #333;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+button.return-btn:hover {
+    background-color: #bbb;
+}
+
+button.return-btn i {
+    margin-right: 8px;
+    font-size: 12px;
+}
+
+/* Formulaires */
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+/* Analyse section */
+#tennis-players-list, #salle-type-list {
+    list-style: none;
+    padding: 0;
+}
+
+#tennis-players-list li, #salle-type-list li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Media Queries pour iPhone (et petits écrans) */
+
+@media (max-width: 812px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        padding: 15px;
+        box-shadow: none;
+        border-radius: 0;
+    }
+
+    h1, h2 {
+        font-size: 24px;
+    }
+
+    input, select, button {
+        font-size: 12px;
+        padding: 10px;
+    }
+
+    button {
+        padding: 6px 12px;
+    }
+
+    button.return-btn {
+        font-size: 10px;
+    }
+
+    table th, table td {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    #tennis-players-list li, #salle-type-list li {
+        font-size: 12px;
+    }
+}

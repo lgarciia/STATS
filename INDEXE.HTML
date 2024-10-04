@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suivi de Tennis et Salle</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Suivi des Activités Sportives</h1>
+
+        <!-- Page de choix de sport -->
+        <section id="choix-sport-section">
+            <h2>Choisissez une activité</h2>
+            <button id="tennis-btn">Tennis</button>
+            <button id="salle-btn">Salle de Sport</button>
+        </section>
+
+        <!-- Section de saisie de données pour le Tennis -->
+        <section id="tennis-section" style="display: none;">
+            <button class="return-btn" id="return-to-sport-selection-tennis"><i>&#8592;</i> Retour</button>
+            <h2>Saisie de Données - Tennis</h2>
+            <form id="tennis-form">
+                <label for="date">Date de la partie :</label>
+                <input type="date" id="tennis-date" name="date" required><br><br>
+
+                <label for="player">Nom du joueur :</label>
+                <input type="text" id="tennis-player" name="player" placeholder="Nom du joueur" required><br><br>
+
+                <label for="duration">Durée (en heures) :</label>
+                <input type="number" id="tennis-duration" name="duration" step="0.5" min="0" placeholder="Nombre d'heures" required><br><br>
+
+                <button type="submit">Enregistrer</button>
+            </form>
+            <p id="tennis-status"></p>
+            <button id="tennis-analyse-btn">Voir Analyse Tennis</button>
+        </section>
+
+        <!-- Section de saisie de données pour la Salle -->
+        <section id="salle-section" style="display: none;">
+            <button class="return-btn" id="return-to-sport-selection-salle"><i>&#8592;</i> Retour</button>
+            <h2>Saisie de Données - Salle de Sport</h2>
+            <form id="salle-form">
+                <label for="date">Date de la séance :</label>
+                <input type="date" id="salle-date" name="date" required><br><br>
+
+                <label for="type">Type de séance :</label>
+                <select id="salle-type" name="type" required>
+                    <option value="Bras">Bras</option>
+                    <option value="Dos">Dos</option>
+                    <option value="Pecs">Pecs</option>
+                    <option value="Jambes">Jambes</option>
+                    <option value="Cardio">Cardio</option>
+                </select><br><br>
+
+                <button type="submit">Enregistrer</button>
+            </form>
+            <p id="salle-status"></p>
+            <button id="salle-analyse-btn">Voir Analyse Salle</button>
+        </section>
+
+        <!-- Section de l'analyse pour le Tennis -->
+        <section id="tennis-analyse-section" style="display: none;">
+            <button class="return-btn" id="return-to-tennis"><i>&#8592;</i> Retour</button>
+            <h2>Analyse des Données - Tennis</h2>
+            <p>Total d'heures jouées : <span id="total-tennis-hours">0</span></p>
+            <div id="tennis-players-distribution">
+                <h3>Répartition des heures par joueur :</h3>
+                <ul id="tennis-players-list"></ul>
+            </div>
+        </section>
+
+        <!-- Section de l'analyse pour la Salle -->
+        <section id="salle-analyse-section" style="display: none;">
+            <button class="return-btn" id="return-to-salle"><i>&#8592;</i> Retour</button>
+            <h2>Analyse des Données - Salle de Sport</h2>
+            <p>Total de séances : <span id="total-salle-sessions">0</span></p>
+            <div id="salle-type-distribution">
+                <h3>Répartition des séances par type :</h3>
+                <ul id="salle-type-list"></ul>
+            </div>
+        </section>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
