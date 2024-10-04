@@ -23,7 +23,37 @@ h1, h2 {
     border-radius: 8px;
 }
 
-/* Boutons */
+/* Centrage des boutons Tennis et Salle de Sport */
+#choix-sport-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#choix-sport-section button {
+    width: 200px;  /* Largeur fixe pour un meilleur alignement */
+    margin: 10px 0;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+#choix-sport-section button:hover {
+    background-color: #0056b3;
+}
+
+#choix-sport-section button:focus {
+    outline: none;
+}
+
+/* Boutons plus fins et centrés */
 button {
     display: inline-block;
     padding: 8px 15px;
