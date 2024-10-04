@@ -23,29 +23,6 @@ h1, h2 {
     border-radius: 8px;
 }
 
-/* Barre de navigation */
-nav ul {
-    list-style-type: none;
-    padding: 0;
-    text-align: center;
-}
-
-nav ul li {
-    display: inline-block;
-    margin-right: 10px;
-}
-
-nav ul li a {
-    color: #1c1c6d;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 18px;
-}
-
-nav ul li a:hover {
-    text-decoration: underline;
-}
-
 /* Boutons */
 button {
     display: inline-block;
@@ -113,8 +90,7 @@ input, select {
     border-bottom: 1px solid #ddd;
 }
 
-/* Media Queries pour iPhone (et petits écrans) */
-
+/* Responsive pour iPhone */
 @media (max-width: 812px) {
     body {
         padding: 10px;
